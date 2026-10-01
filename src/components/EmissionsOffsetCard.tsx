@@ -22,8 +22,8 @@ export const EmissionsOffsetCard: React.FC<EmissionsOffsetCardProps> = ({
       name: 'In Progress',
       count: 23,
       tonnage: 21400,
-      color: '#F59E0B', // Deep warm amber
-      dotClass: 'bg-[#F59E0B]',
+      color: '#D97706', // Rich deep warm amber (Amber 600)
+      dotClass: 'bg-[#D97706]',
       description: 'Active forestry, direct air capture & renewable displacement projects currently retiring credits.'
     },
     {
@@ -31,7 +31,7 @@ export const EmissionsOffsetCard: React.FC<EmissionsOffsetCardProps> = ({
       name: 'Completed',
       count: 13,
       tonnage: 11200,
-      color: '#FBBF24', // Medium gold amber
+      color: '#FBBF24', // Medium bright gold amber (Amber 400)
       dotClass: 'bg-[#FBBF24]',
       description: 'Fully audited & certified vintage credits retired on Verra / Gold Standard registries.'
     },
@@ -40,8 +40,8 @@ export const EmissionsOffsetCard: React.FC<EmissionsOffsetCardProps> = ({
       name: 'In Review',
       count: 3,
       tonnage: 3100,
-      color: '#FDE68A', // Light soft amber
-      dotClass: 'bg-[#FDE68A]',
+      color: '#FDE047', // Light luminous radiant canary yellow (Yellow 300)
+      dotClass: 'bg-[#FDE047]',
       description: 'Third-party auditor review (ISO 14064-3 limited assurance in progress).'
     },
     {
@@ -49,8 +49,8 @@ export const EmissionsOffsetCard: React.FC<EmissionsOffsetCardProps> = ({
       name: 'On Hold',
       count: 3,
       tonnage: 1800,
-      color: '#E2E8F0', // Neutral light slate
-      dotClass: 'bg-[#CBD5E1]',
+      color: '#94A3B8', // Neutral refined cool slate (Slate 400)
+      dotClass: 'bg-[#94A3B8]',
       description: 'Buffer pool reserve held against potential reversal or leakage risk.'
     }
   ];
@@ -58,13 +58,13 @@ export const EmissionsOffsetCard: React.FC<EmissionsOffsetCardProps> = ({
   const totalProjects = projectStatusData.reduce((acc, curr) => acc + curr.count, 0); // 42
   const totalTonnage = data.totalOffset; // 37,500 tCO2e
 
-  // SVG Arch Gauge Math
+  // SVG Arch Gauge Math (Enlarged for prominent visual hierarchy)
   // Semi-circle spanning from 180° to 0°
-  const cx = 110;
-  const cy = 105;
-  const r = 78;
-  const strokeWidth = 14;
-  const totalArcLength = Math.PI * r; // ~245.04px
+  const cx = 130;
+  const cy = 125;
+  const r = 95;
+  const strokeWidth = 17;
+  const totalArcLength = Math.PI * r; // ~298.45px
 
   // 3 gaps of 3px between 4 segments
   const gapSize = 3;
@@ -112,10 +112,10 @@ export const EmissionsOffsetCard: React.FC<EmissionsOffsetCardProps> = ({
       </div>
 
       {/* 2. Center: Semi-Circle Gauge with Big Hero "42" and "Active Projects" */}
-      <div className="relative w-full flex flex-col items-center justify-center my-auto py-3">
-        <div className="relative w-[210px] sm:w-[230px] h-[115px] sm:h-[125px] flex items-end justify-center overflow-hidden">
+      <div className="relative w-full flex flex-col items-center justify-center my-auto py-2">
+        <div className="relative w-[250px] sm:w-[280px] h-[135px] sm:h-[150px] flex items-end justify-center overflow-hidden">
           <svg
-            viewBox="0 0 220 120"
+            viewBox="0 0 260 140"
             className="w-full h-full overflow-visible select-none"
             aria-label="Offset Project Status Gauge"
           >
@@ -151,9 +151,7 @@ export const EmissionsOffsetCard: React.FC<EmissionsOffsetCardProps> = ({
                   strokeDashoffset={offsets[idx]}
                   strokeLinecap="round"
                   transform={`rotate(-180 ${cx} ${cy})`}
-                  className={`transition-all duration-300 cursor-pointer ${
-                    isCardHovered ? 'opacity-100' : ''
-                  }`}
+                  className="transition-all duration-300 cursor-pointer"
                   style={{
                     opacity: isOtherHovered ? 0.35 : 1
                   }}
@@ -165,12 +163,8 @@ export const EmissionsOffsetCard: React.FC<EmissionsOffsetCardProps> = ({
           </svg>
 
           {/* Centered Readout inside the Semi-circle Arch: "42" + "Active Projects" */}
-          <div className="absolute inset-x-0 bottom-1 flex flex-col items-center justify-center text-center pointer-events-none">
-            <span
-              className={`text-2xl sm:text-[28px] font-semibold text-[#0B1926] tracking-tight font-data leading-none transition-all ${
-                isCardHovered ? 'animate-subtle-pulse text-[#F59E0B]' : ''
-              }`}
-            >
+          <div className="absolute inset-x-0 bottom-1.5 flex flex-col items-center justify-center text-center pointer-events-none">
+            <span className="text-3xl sm:text-[36px] font-bold text-[#0B1926] tracking-tight font-data leading-none">
               {activeCategory
                 ? viewMode === 'count'
                   ? activeCategory.count
@@ -179,7 +173,7 @@ export const EmissionsOffsetCard: React.FC<EmissionsOffsetCardProps> = ({
                 ? totalProjects
                 : `${(totalTonnage / 1000).toFixed(1)}k`}
             </span>
-            <span className="text-[10px] uppercase font-semibold tracking-wider text-slate-500 mt-1 transition-all">
+            <span className="text-[11px] uppercase font-semibold tracking-wider text-slate-500 mt-1 transition-all">
               {activeCategory
                 ? activeCategory.name
                 : viewMode === 'count'
@@ -192,7 +186,7 @@ export const EmissionsOffsetCard: React.FC<EmissionsOffsetCardProps> = ({
         {/* Micro Toggle to switch between Project Count and Carbon Tonnage */}
         <button
           onClick={() => setViewMode(viewMode === 'count' ? 'tonnage' : 'count')}
-          className="mt-3 text-[11px] text-slate-600 hover:text-[#0B1926] font-medium transition-colors flex items-center gap-1 cursor-pointer bg-white/60 hover:bg-white/80 px-3 py-1 rounded-full border border-white/80 shadow-2xs"
+          className="mt-2.5 text-[11px] text-slate-600 hover:text-[#0B1926] font-medium transition-colors flex items-center gap-1 cursor-pointer bg-white/60 hover:bg-white/80 px-3 py-1 rounded-full border border-white/80 shadow-2xs"
         >
           <span>
             {viewMode === 'count'
@@ -224,11 +218,7 @@ export const EmissionsOffsetCard: React.FC<EmissionsOffsetCardProps> = ({
                 {/* Text and Count in Parentheses */}
                 <div className="flex items-baseline gap-1 truncate text-slate-700">
                   <span className="text-xs font-medium truncate">{item.name}</span>
-                  <span
-                    className={`font-semibold text-xs text-[#0B1926] font-data transition-all ${
-                      isCardHovered ? 'animate-subtle-pulse' : ''
-                    }`}
-                  >
+                  <span className="font-semibold text-xs text-[#0B1926] font-data">
                     ({viewMode === 'count' ? item.count : `${(item.tonnage / 1000).toFixed(1)}k`})
                   </span>
                 </div>

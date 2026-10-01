@@ -83,7 +83,7 @@ export const FloatingNav: React.FC<FloatingNavProps> = ({
   };
 
   return (
-    <header className="w-full bg-white/45 backdrop-blur-xl border-b border-white/60 sticky top-0 z-50 transition-all shadow-[0_2px_12px_rgba(11,25,38,0.02)]">
+    <header className="w-full bg-transparent relative z-50">
       <div
         ref={navRef}
         className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-6 h-[64px] sm:h-[68px] flex items-center justify-between gap-2.5 sm:gap-4"

@@ -14,7 +14,7 @@
   body {
     font-family: -apple-system, BlinkMacSystemFont, 'Plus Jakarta Sans', 'SF Pro Text', 'Inter', sans-serif;
     color: #0B1926;
-    background: linear-gradient(180deg, #D4E5FA 0%, #E2EEFB 16%, #F5F9FE 38%, #FFFFFF 50%, #F5F9FE 62%, #E2EEFB 84%, #D4E5FA 100%);
+    background: linear-gradient(180deg, #EBF3FC 0%, #F4F8FD 10%, #FFFFFF 30%, #FFFFFF 55%, #F4F8FD 75%, #E2EEFB 88%, #D4E5FA 100%);
     background-attachment: fixed;
     min-height: 100vh;
   }
