@@ -106,7 +106,7 @@ export const FloatingNav: React.FC<FloatingNavProps> = ({
           </div>
           <div className="flex items-baseline">
             <span className="text-[17px] sm:text-[19px] font-semibold text-[#0B1926] tracking-tight">
-              Tula<span className="text-[#16a34a]">Karbon</span>
+              Tula<span className="text-[#16a34a]">Carbon</span>
             </span>
           </div>
         </div>
